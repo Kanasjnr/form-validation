@@ -18,9 +18,13 @@ const Register = () => {
   const [user, setUser] = useState("");
   const [validName, setValidName] = useState(false);
   const [pwdFocus, setPwdFocus] = useState(false);
-  
-  const [matchpwd, setMatchpwd] = useState(false);
 
+  const [matchpwd, setMatchpwd] = useState("");
+  const [validMatch, setValidMatch] = useState(false);
+  const [matchFocus, setMatchFocus] = useState(false);
+
+  const [errMsg, setErrMsg] = useState("");
+  const [sucess, setSucess] = useState(false);
 };
 
 export default Register;
