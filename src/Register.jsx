@@ -72,8 +72,13 @@ const Register = () => {
           ref={userRef}
           onChange={(e) => setUser(e.target.value)}
           placeholder="username"
+          value={user}
           autoComplete="off"
           required
+          aria-invalid={validMatch ? "false" : "true"}
+          aria-describedby="uidnote"
+          onFocus={() => setUserFocus(true)}
+          onBlur={() => setUserFocus(false)}
         />
       </form>
     </>
