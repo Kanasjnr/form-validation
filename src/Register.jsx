@@ -12,25 +12,35 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = "./Register.jsx";
 
 const Register = () => {
-  const userRef = useRef();
-  const errRef = useRef();
-
-  const [user, setUser] = useState("");
-  const [validName, setValidName] = useState(false);
-  const [pwdFocus, setPwdFocus] = useState(false);
-
-  const [matchpwd, setMatchpwd] = useState("");
-  const [validMatch, setValidMatch] = useState(false);
-  const [matchFocus, setMatchFocus] = useState(false);
-
-  const [errMsg, setErrMsg] = useState("");
-  const [sucess, setSucess] = useState(false);
+    const userRef = useRef();
+    const errRef = useRef();
+  
+    const [user, setUser] = useState("");
+    const [validName, setValidName] = useState(false);
+    const [userFocus, setUserFocus] = useState(false);
+  
+    const [pwd, setPwd] = useState("");
+    const [validPwd, setValidPwd] = useState(false);
+    const [pwdFocus, setPwdFocus] = useState(false);
+  
+    const [matchPwd, setMatchPwd] = useState("")
+    const [validMatch, setValidMatch] = useState(false)
+    const [matchFocus, setMatchFocus] = useState(false)
+  
+    const [errMsg, setErrMsg] = useState("");
+    const [success, setSuccess] = useState(false);
 
 
     useEffect(() => {
         useRef.current.focus()
     },[])
 
+    useEffect(() => {
+      setValidName(USER_REGEX.test(user))
+    },[user])
+    useEffect(() => {
+      setValidPwd(USER_REGEX.test(pwd))
+    },[user])
     useEffect(() => {
       setValidName(USER_REGEX.test(user))
     },[user])
