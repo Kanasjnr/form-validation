@@ -42,10 +42,14 @@ const Register = () => {
       setValidPwd(USER_REGEX.test(pwd))
     },[user])
     useEffect(() => {
-      setValidName(USER_REGEX.test(user))
-    },[user])
+      setErrMsg(USER_REGEX.test(''))
+    },[user,pwd,matchPwd])
 
+return(
+    <p ref={errRef} className={errMsg ? "errmsg" : "offScreen"} aria-live="assertive">
 
+    </p>
+)
 
 };
 
