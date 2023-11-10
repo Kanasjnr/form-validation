@@ -1,14 +1,15 @@
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   faCheck,
   faTimes,
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
-const USER_REGEX = /^[A-Z][a-z0-9-_]{3,23}$/;
+// import axios from "./api/axios"
+
+const USER_REGEX = /^[A-Z][A-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = "./register";
+const REGISTER_URL = "/register";
 
 const Register = () => {
   const userRef = useRef();
@@ -36,9 +37,11 @@ const Register = () => {
   useEffect(() => {
     setValidName(USER_REGEX.test(user));
   }, [user]);
+
   useEffect(() => {
     setValidPwd(PWD_REGEX.test(pwd));
-  }, [user, matchPwd]);
+  }, [pwd, matchPwd]);
+
   useEffect(() => {
     setErrMsg("");
   }, [user, pwd, matchPwd]);
@@ -52,7 +55,6 @@ const Register = () => {
       >
         {errMsg}
       </p>
-
       <form>
         <label htmlFor="username">
           username:
@@ -69,28 +71,27 @@ const Register = () => {
           type="text"
           id="username"
           ref={userRef}
-          onChange={(e) => setUser(e.target.value)}
-          placeholder="username"
-          value={user}
           autoComplete="off"
+          onChange={(e) => setUser(e.target.value)}
+          value={user}
           required
           aria-invalid={validName ? "false" : "true"}
           aria-describedby="uidnote"
           onFocus={() => setUserFocus(true)}
           onBlur={() => setUserFocus(false)}
         />
+
         <p
           id="uidnote"
           className={
-            userFocus && user && !validName ? "instruction" : "offscreen"
+            userFocus && user && !validName ? "instructions" : "offscreen"
           }
         >
-        <FontAwesomeIcon icon={faInfoCircle} />
-          3-23 characters.
-          <br />
-          Must Begin with a letter <br />
-          number, underScore, hyphens Allowed
+          <FontAwesomeIcon icon={faInfoCircle} />
+          3 to 23 characters <br />
+          Must begin with a letter, number, underscore, hyphens allowed
         </p>
+
         <label htmlFor="password">
           password:
           <FontAwesomeIcon
@@ -99,14 +100,13 @@ const Register = () => {
           />
           <FontAwesomeIcon
             icon={faTimes}
-            className={validMatch || !pwd ? "hide" : "invalid"}
+            className={validPwd || !pwd ? "hide" : "invalid"}
           />
         </label>
         <input
           type="password"
           id="password"
           onChange={(e) => setPwd(e.target.value)}
-          placeholder="password"
           value={pwd}
           required
           aria-invalid={validPwd ? "false" : "true"}
@@ -114,20 +114,23 @@ const Register = () => {
           onFocus={() => setPwdFocus(true)}
           onBlur={() => setPwdFocus(false)}
         />
+
         <p
-          id="uidnote"
-          className={
-            pwdFocus && pwd && !validPwd ? "instruction" : "offscreen"
-          }
+          id="pwdnote"
+          className={pwdFocus && !validPwd ? "instructions" : "offscreen"}
         >
           <FontAwesomeIcon icon={faInfoCircle} />
-          8-24 characters.
-          <br />
-          Must include UpperCase and LowerCase Letters, a number and a Special
-        character. <br />
-        Allowed Special characters :
+          8 to 24 characters <br />
+          Must include Uppercase and LowerCase Letters, a number and a special
+          character <br />
+          Allowed special character:<span aria-label="exclamation mark">
+            !
+          </span>{" "}
+          <span aria-label="at symbol">@</span>{" "}
+          <span aria-label="hashtag">#</span>{" "}
+          <span aria-label="dollar sign">$</span>{" "}
+          <span aria-label="percent">%</span>
         </p>
-        
       </form>
     </>
   );
