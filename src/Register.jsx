@@ -45,11 +45,19 @@ const Register = () => {
   }, [user, pwd, matchPwd]);
 
   return (
-    <p
+    <>
+      <p
       ref={errRef}
-      className={errMsg ? "errmsg" : "offScreen"}
+      className={errMsg ? "errmsg" : "offscreen"}
       aria-live="assertive"
     >{errMsg}</p>
+
+    <form>
+        
+    </form>
+
+    </>
+  
   );
 };
 
