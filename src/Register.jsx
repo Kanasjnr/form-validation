@@ -12,45 +12,49 @@ const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const REGISTER_URL = "./Register.jsx";
 
 const Register = () => {
-    const userRef = useRef();
-    const errRef = useRef();
-  
-    const [user, setUser] = useState("");
-    const [validName, setValidName] = useState(false);
-    const [userFocus, setUserFocus] = useState(false);
-  
-    const [pwd, setPwd] = useState("");
-    const [validPwd, setValidPwd] = useState(false);
-    const [pwdFocus, setPwdFocus] = useState(false);
-  
-    const [matchPwd, setMatchPwd] = useState("")
-    const [validMatch, setValidMatch] = useState(false)
-    const [matchFocus, setMatchFocus] = useState(false)
-  
-    const [errMsg, setErrMsg] = useState("");
-    const [success, setSuccess] = useState(false);
+  const userRef = useRef();
+  const errRef = useRef();
 
+  const [user, setUser] = useState("");
+  const [validName, setValidName] = useState(false);
+  const [userFocus, setUserFocus] = useState(false);
 
-    useEffect(() => {
-        useRef.current.focus()
-    },[])
+  const [pwd, setPwd] = useState("");
+  const [validPwd, setValidPwd] = useState(false);
+  const [pwdFocus, setPwdFocus] = useState(false);
 
-    useEffect(() => {
-      setValidName(USER_REGEX.test(user))
-    },[user])
-    useEffect(() => {
-      setValidPwd(USER_REGEX.test(pwd))
-    },[user])
-    useEffect(() => {
-      setErrMsg(USER_REGEX.test(''))
-    },[user,pwd,matchPwd])
+  const [matchPwd, setMatchPwd] = useState("");
+  const [validMatch, setValidMatch] = useState(false);
+  const [matchFocus, setMatchFocus] = useState(false);
 
-return(
-    <p ref={errRef} className={errMsg ? "errmsg" : "offScreen"} aria-live="assertive">
+  const [errMsg, setErrMsg] = useState("");
+  const [success, setSuccess] = useState(false);
 
+  useEffect(() => {
+    useRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    setValidName(USER_REGEX.test(user));
+  }, [user]);
+  useEffect(() => {
+    setValidPwd(PWD_REGEX.test(pwd));
+  }, [user,matchPwd]);
+  useEffect(() => {
+    setErrMsg("");
+  }, [user, pwd, matchPwd]);
+
+  return (
+    <p
+      ref={errRef}
+      className={errMsg ? "errmsg" : "offScreen"}
+      aria-live="assertive"
+    >
+      <form>
+        <label></label>
+      </form>
     </p>
-)
-
+  );
 };
 
 export default Register;
