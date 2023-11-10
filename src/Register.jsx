@@ -80,6 +80,11 @@ const Register = () => {
           onFocus={() => setUserFocus(true)}
           onBlur={() => setUserFocus(false)}
         />
+
+        <p id="uidnote" className={userFocus && user && !validName ? "instruction" : "offscreen"}>
+            <FontAwesomeIcon icon={faInfoCircles} />
+
+        </p>
       </form>
     </>
   );
