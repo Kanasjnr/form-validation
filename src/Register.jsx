@@ -47,21 +47,27 @@ const Register = () => {
   return (
     <>
       <p
-      ref={errRef}
-      className={errMsg ? "errmsg" : "offscreen"}
-      aria-live="assertive"
-    >{errMsg}</p>
+        ref={errRef}
+        className={errMsg ? "errmsg" : "offscreen"}
+        aria-live="assertive"
+      >
+        {errMsg}
+      </p>
 
-    <form>
+      <form>
         <label htmlFor="username">
-        username:
-            <FontAwesomeIcon  icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
-            <FontAwesomeIcon  icon={faTimes} className={validMatch || matchPwd ? "hide" : "invalid"} />
+          username:
+          <FontAwesomeIcon
+            icon={faCheck}
+            className={validMatch && matchPwd ? "valid" : "hide"}
+          />
+          <FontAwesomeIcon
+            icon={faTimes}
+            className={validMatch || matchPwd ? "hide" : "invalid"}
+          />
         </label>
-    </form>
-
+      </form>
     </>
-  
   );
 };
 
