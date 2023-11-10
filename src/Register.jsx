@@ -15,6 +15,7 @@ const REGISTER_URL = "./Register.jsx"
 
 
 const Register = () => {
+    const userRef = useRef()
   return (
     <div>Register</div>
   )
