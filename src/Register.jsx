@@ -68,7 +68,7 @@ const Register = () => {
         </label>
         <input
           type="text"
-          id="uesername"
+          id="username"
           ref={userRef}
           onChange={(e) => setUser(e.target.value)}
           placeholder="username"
@@ -87,9 +87,37 @@ const Register = () => {
           }
         >
           <FontAwesomeIcon icon={faInfoCircles} />
-          8-24 characters.
+          3-23 characters.
           <br />
+          Must Begin with a letter <br />
+          number, underScore, hyphens Allowed
         </p>
+        <label htmlFor="password">
+          password:
+          <FontAwesomeIcon
+            icon={faCheck}
+            className={validPwd ? "valid" : "hide"}
+          />
+          <FontAwesomeIcon
+            icon={faTimes}
+            className={validMatch || !pwd ? "hide" : "invalid"}
+          />
+
+        </label>
+        <input
+          type="password"
+          id="password"
+          ref={userRef}
+          onChange={(e) => setUser(e.target.value)}
+          placeholder="username"
+          value={user}
+          autoComplete="off"
+          required
+          aria-invalid={validMatch ? "false" : "true"}
+          aria-describedby="uidnote"
+          onFocus={() => setUserFocus(true)}
+          onBlur={() => setUserFocus(false)}
+        />
         Must include UpperCase and LowerCase Letters, a number and a Special
         character. <br />
         Allowed Special characters :
