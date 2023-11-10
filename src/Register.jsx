@@ -75,7 +75,7 @@ const Register = () => {
           value={user}
           autoComplete="off"
           required
-          aria-invalid={validMatch ? "false" : "true"}
+          aria-invalid={validName ? "false" : "true"}
           aria-describedby="uidnote"
           onFocus={() => setUserFocus(true)}
           onBlur={() => setUserFocus(false)}
@@ -102,25 +102,33 @@ const Register = () => {
             icon={faTimes}
             className={validMatch || !pwd ? "hide" : "invalid"}
           />
-
         </label>
         <input
           type="password"
           id="password"
-          ref={userRef}
-          onChange={(e) => setUser(e.target.value)}
+          onChange={(e) => setPwd(e.target.value)}
           placeholder="username"
-          value={user}
-          autoComplete="off"
+          value={pwd}
           required
-          aria-invalid={validMatch ? "false" : "true"}
+          aria-invalid={validPwd ? "false" : "true"}
           aria-describedby="uidnote"
-          onFocus={() => setUserFocus(true)}
-          onBlur={() => setUserFocus(false)}
+          onFocus={() => setPwdFocus(true)}
+          onBlur={() => setPwdFocus(false)}
         />
-        Must include UpperCase and LowerCase Letters, a number and a Special
+        <p
+          id="uidnote"
+          className={
+            pwdFocus && pwd && !validPwd ? "instruction" : "offscreen"
+          }
+        >
+          <FontAwesomeIcon icon={faInfoCircles} />
+          8-24 characters.
+          <br />
+          Must include UpperCase and LowerCase Letters, a number and a Special
         character. <br />
         Allowed Special characters :
+        </p>
+        
       </form>
     </>
   );
