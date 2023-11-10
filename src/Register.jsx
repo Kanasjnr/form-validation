@@ -14,7 +14,10 @@ const REGISTER_URL = "./Register.jsx";
 const Register = () => {
   const userRef = useRef();
   const errRef = useRef();
-  return <div>Register</div>;
+
+  const [user, setUser] = useState("");
+  const [validName, setValidName] = useState(false);
+  const [pwdFocus, setPwdFocus] = useState(false);
 };
 
 export default Register;
