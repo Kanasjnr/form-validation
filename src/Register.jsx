@@ -2,14 +2,13 @@ import { useRef, useEffect, useState } from "react";
 import {
   faCheck,
   faTimes,
-  faInfoCircles,
+  faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "./api/axios";
-
+import axios from "axios";
 const USER_REGEX = /^[A-Z][a-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-const REGISTER_URL = "./Register.jsx";
+const REGISTER_URL = "./register";
 
 const Register = () => {
   const userRef = useRef();
@@ -31,7 +30,7 @@ const Register = () => {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    useRef.current.focus();
+    userRef.current.focus();
   }, []);
 
   useEffect(() => {
@@ -86,7 +85,7 @@ const Register = () => {
             userFocus && user && !validName ? "instruction" : "offscreen"
           }
         >
-          <FontAwesomeIcon icon={faInfoCircles} />
+        <FontAwesomeIcon icon={faInfoCircle} />
           3-23 characters.
           <br />
           Must Begin with a letter <br />
@@ -107,7 +106,7 @@ const Register = () => {
           type="password"
           id="password"
           onChange={(e) => setPwd(e.target.value)}
-          placeholder="username"
+          placeholder="password"
           value={pwd}
           required
           aria-invalid={validPwd ? "false" : "true"}
@@ -121,7 +120,7 @@ const Register = () => {
             pwdFocus && pwd && !validPwd ? "instruction" : "offscreen"
           }
         >
-          <FontAwesomeIcon icon={faInfoCircles} />
+          <FontAwesomeIcon icon={faInfoCircle} />
           8-24 characters.
           <br />
           Must include UpperCase and LowerCase Letters, a number and a Special

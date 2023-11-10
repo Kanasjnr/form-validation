@@ -1,5 +1,5 @@
 import Register from './Register'
-import axios from './api/axios'
+import axios from 'axios'
 
 
 const App = () => {
