@@ -1,4 +1,5 @@
 import Register from './Register'
+import axios from './api/axios'
 
 
 const App = () => {
