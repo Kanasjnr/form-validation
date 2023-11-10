@@ -53,7 +53,9 @@ const Register = () => {
     >{errMsg}</p>
 
     <form>
-        
+        <label>
+            
+        </label>
     </form>
 
     </>
