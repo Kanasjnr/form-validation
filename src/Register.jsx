@@ -39,7 +39,7 @@ const Register = () => {
   }, [user]);
   useEffect(() => {
     setValidPwd(PWD_REGEX.test(pwd));
-  }, [user,matchPwd]);
+  }, [user, matchPwd]);
   useEffect(() => {
     setErrMsg("");
   }, [user, pwd, matchPwd]);
@@ -49,11 +49,7 @@ const Register = () => {
       ref={errRef}
       className={errMsg ? "errmsg" : "offScreen"}
       aria-live="assertive"
-    >
-      <form>
-        <label></label>
-      </form>
-    </p>
+    >{errMsg}</p>
   );
 };
 
