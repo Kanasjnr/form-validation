@@ -25,6 +25,18 @@ const Register = () => {
 
   const [errMsg, setErrMsg] = useState("");
   const [sucess, setSucess] = useState(false);
+
+
+    useEffect(() => {
+        useRef.current.focus()
+    },[])
+
+    useEffect(() => {
+      setValidName(USER_REGEX.test(user))
+    },[user])
+
+
+
 };
 
 export default Register;
