@@ -66,6 +66,13 @@ const Register = () => {
             className={validMatch || matchPwd ? "hide" : "invalid"}
           />
         </label>
+        <input type="password" 
+        id="password"
+        onChange={(e) => setPwd(e.target.value)}
+        placeholder="password"
+        autoComplete="n"
+        required
+        />
       </form>
     </>
   );
