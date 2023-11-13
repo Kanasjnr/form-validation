@@ -40,6 +40,7 @@ const Register = () => {
 
   useEffect(() => {
     setValidPwd(PWD_REGEX.test(pwd));
+    setValidMatch(pwd === matchPwd)
   }, [pwd, matchPwd]);
 
   useEffect(() => {
@@ -132,37 +133,29 @@ const Register = () => {
             <span aria-label="percent">%</span>
           </p>
 
-          <label htmlFor="confirm_pwd">
-            confirm password:
-            <FontAwesomeIcon
-              icon={faCheck}
-              className={validMatch && matchPwd ? "valid" : "hide"}
-            />
-            <FontAwesomeIcon
-              icon={faTimes}
-              className={validMatch && !matchPwd ? "hide" : "valid"}
-            />
-          </label>
-          <input
-            type="password"
-            id="confirm_password"
-            onChange={(e) => setMatchPwd(e.target.value)}
-            value={matchPwd}
-            required
-            aria-invalid={validMatch ? "false" : "true"}
-            aria-describedby="confirmnote"
-            onFocus={() => setMatchFocus(true)}
-            onBlur={() => setMatchFocus(false)}
-          />
-          <p
-            id="confirmnote"
-            className={
-              matchFocus && !validMatch ? "instructions" : "offscereen"
-            }
-          >
-            <FontAwesomeIcon icon={faInfoCircle} />
-            Must Match the first password input field.
-          </p>
+         
+       <label htmlFor="confirm_pwd">
+                Confirm Password:
+                <FontAwesomeIcon icon={faCheck} className={validMatch && matchPwd ? "valid" : "hide"} />
+                <FontAwesomeIcon icon={faTimes} className={validMatch || !matchPwd ? "hide" : "invalid"} />
+            </label>
+
+            <input type="password"
+                    id="confirm_pwd"
+                    onChange={(e) => setMatchPwd(e.target.value)}
+                    value={matchPwd}
+                    required
+                    aria-invalid={validMatch ? "false" : "true"}
+                    aria-describedby="confirmnote"
+                    onFocus={() => setMatchFocus(true)}
+                    onBlur={() => setMatchFocus(false)}
+             />
+
+             <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}>
+                <FontAwesomeIcon icon={faInfoCircle} />
+                Must Match The First Password Input Field.
+
+             </p>
         </form>
       </section>
     </>
