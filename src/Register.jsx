@@ -141,7 +141,7 @@ const Register = () => {
           />
           <FontAwesomeIcon
             icon={faTimes}
-            className={validMatch && matchPwd ? "hide" : "valid"}
+            className={validMatch && !matchPwd ? "hide" : "valid"}
           />
         </label>
       </form>
