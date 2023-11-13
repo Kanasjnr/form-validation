@@ -151,7 +151,9 @@ const Register = () => {
         value={matchPwd}
         required
         aria-invalid={validMatch ? "false" : "true"}
-        aria-describedby=""
+        aria-describedby="confirmnote"
+        onFocus={() => setMatchFocus(true)}
+        onBlur={() => setMatchFocus(false)}
          />
         
       </form>
