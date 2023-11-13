@@ -148,6 +148,8 @@ const Register = () => {
         type="password"
         id="confirm_password"
         onChange={(e) => setMatchPwd(e.target.value)}
+        value={matchPwd}
+        required
         
          />
         
