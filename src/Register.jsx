@@ -48,6 +48,7 @@ const Register = () => {
 
   return (
     <>
+    <section>
       <p
         ref={errRef}
         className={errMsg ? "errmsg" : "offscreen"}
@@ -144,7 +145,9 @@ const Register = () => {
           />
         </label>
       </form>
+      </section>
     </>
+
   );
 };
 
