@@ -134,6 +134,7 @@ const Register = () => {
 
 
         <label htmlFor="confirm_pwd">
+            confirm password:
 
         </label>
       </form>
