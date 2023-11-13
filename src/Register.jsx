@@ -144,6 +144,13 @@ const Register = () => {
             className={validMatch && !matchPwd ? "hide" : "valid"}
           />
         </label>
+        <input
+        type="password"
+        id="confirm_password"
+        onChange={(e) => setMatchPwd(e.target.value)}
+        
+         />
+        
       </form>
       </section>
     </>
