@@ -47,15 +47,11 @@ const Register = () => {
     setErrMsg("");
   }, [user, pwd, matchPwd]);
 
-
-const handleSubmit = async (e) => {
-    e.preventDefault()
-    const v1 = USER_REGEX.test(user)
-    const v2 = PWD_REGEX.test(pwd)
-    
-}
-
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const v1 = USER_REGEX.test(user);
+    const v2 = PWD_REGEX.test(pwd);
+  };
 
   return (
     <>
