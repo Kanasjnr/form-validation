@@ -60,7 +60,7 @@ const Register = () => {
           username:
           <FontAwesomeIcon
             icon={faCheck}
-            className={validName  ? "valid" : "hide"}
+            className={validName ? "valid" : "hide"}
           />
           <FontAwesomeIcon
             icon={faTimes}
@@ -132,12 +132,16 @@ const Register = () => {
           <span aria-label="percent">%</span>
         </p>
 
-
         <label htmlFor="confirm_pwd">
-            confirm password:
-            <FontAwesomeIcon icon={faCheck}  className={validMatch && matchPwd ? "valid" : "hide"}/>
-            
-
+          confirm password:
+          <FontAwesomeIcon
+            icon={faCheck}
+            className={validMatch && matchPwd ? "valid" : "hide"}
+          />
+          <FontAwesomeIcon
+            icon={faTimes}
+            className={validMatch && matchPwd ? "hide" : "valid"}
+          />
         </label>
       </form>
     </>
