@@ -154,6 +154,15 @@ const Register = () => {
             onFocus={() => setMatchFocus(true)}
             onBlur={() => setMatchFocus(false)}
           />
+          <p
+            id="confirmnote"
+            className={
+              matchFocus && !validMatch ? "instructions" : "offscereen"
+            }
+          >
+            <FontAwesomeIcon icon={faInfoCircle} />
+            Must Match the first password input field.
+          </p>
         </form>
       </section>
     </>
