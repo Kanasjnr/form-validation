@@ -51,7 +51,7 @@ const Register = () => {
     e.preventDefault();
     //if button enabled with JS hack
     const v1 = USER_REGEX.test(user);
-    const v2 = USER_REGEX.test(pwd);
+    const v2 = PWD_REGEX.test(pwd);
     if (!v1 || !v2) {
       setErrMsg("Invalid Entry");
       return;
@@ -66,6 +66,12 @@ const Register = () => {
 
   return (
     <>
+    {success ? (
+        <section>
+
+        </section>
+
+        
       <section>
         <h1>Register</h1>
         <p
@@ -193,6 +199,7 @@ const Register = () => {
           </span>
         </p>
       </section>
+    ): }
     </>
   );
 };
