@@ -50,6 +50,7 @@ const Register = () => {
   return (
     <>
       <section>
+        <h1>Register</h1>
         <p
           ref={errRef}
           className={errMsg ? "errmsg" : "offscreen"}
@@ -57,7 +58,7 @@ const Register = () => {
         >
           {errMsg}
         </p>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label htmlFor="username">
             username:
             <FontAwesomeIcon
@@ -164,10 +165,16 @@ const Register = () => {
             <FontAwesomeIcon icon={faInfoCircle} />
             Must Match The First Password Input Field.
           </p>
-          <button disabled={!validName || !validPwd ? true: false}>
+          <button disabled={!validName || !validPwd ? true : false}>
             Sign Up
           </button>
         </form>
+        <p>
+          Already Registered? <br />
+          <span className="line">
+            <a href="#">Sign in</a>
+          </span>
+        </p>
       </section>
     </>
   );
