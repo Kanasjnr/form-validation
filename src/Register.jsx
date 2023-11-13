@@ -48,14 +48,21 @@ const Register = () => {
   }, [user, pwd, matchPwd]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     //if button enabled with JS hack
-    const v1 = USER_REGEX.test(user)
-    const v2 = USER_REGEX.test(pwd)
-    if (!v1 || v2) {
-      setErrMsg("Invalid Entry" )
+    const v1 = USER_REGEX.test(user);
+    const v2 = USER_REGEX.test(pwd);
+    if (!v1 || !v2) {
+      setErrMsg("Invalid Entry");
+      return;
     }
-  }
+    console.log(user, pwd);
+    setSuccess(true);
+
+    setUser("");
+    setPwd("");
+    setMatchPwd("");
+  };
 
   return (
     <>
